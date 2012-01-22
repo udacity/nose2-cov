@@ -41,7 +41,7 @@ Usage
 
 The following will report on the combined coverage of the main process and all of it's subprocesses::
 
-    nose2 --with-cov --cov testfoo testfoo
+    nose2 --with-cov testfoo
 
 Shows a terminal report::
 
@@ -61,7 +61,7 @@ annotated source code.
 
 The terminal report without line numbers (default)::
 
-    nose2 --with-cov --cov-report term --cov testfoo testfoo
+    nose2 --with-cov --cov-report term testfoo
 
     ---------- coverage: platform linux2, python 2.7.1-final-0 -----------
     Name      Stmts   Miss  Cover
@@ -71,7 +71,7 @@ The terminal report without line numbers (default)::
 
 The terminal report with line numbers::
 
-    nose2 --with-cov --cov-report term-missing --cov testfoo testfoo
+    nose2 --with-cov --cov-report term-missing testfoo
 
     ---------- coverage: platform linux2, python 2.7.1-final-0 -----------
     Name      Stmts   Miss  Cover   Missing
@@ -82,7 +82,7 @@ The terminal report with line numbers::
 The remaining three reports output to files (useful for when the output is going to a continuous
 integration server)::
 
-    nose2 --with-cov --cov-report html --cov-report xml --cov-report annotate --cov testfoo testfoo
+    nose2 --with-cov --cov-report html --cov-report xml --cov-report annotate testfoo
 
 
 Coverage Data File
