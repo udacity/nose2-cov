@@ -1,15 +1,15 @@
 import setuptools
 
 setuptools.setup(name='nose2-cov',
-                 version='1.0a3',
-                 description='nose2 plugin for coverage reporting, including subprocesses',
+                 version='1.0a4',
+                 description='nose2 plugin for coverage reporting, including subprocesses and multiprocessing',
                  long_description=open('README.txt').read().strip(),
                  author='Meme Dough',
                  author_email='memedough@gmail.com',
                  url='http://bitbucket.org/memedough/nose2-cov/overview',
                  py_modules=['nose2_cov'],
                  install_requires=['nose2>=0.1',
-                                   'cov-core>=1.3'],
+                                   'cov-core>=1.6'],
                  license='MIT License',
                  zip_safe=False,
                  keywords='nose2 cover coverage',

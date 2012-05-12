@@ -94,6 +94,31 @@ The data file is left at the end of testing so that it is possible to use normal
 examine it.
 
 
+Coverage Config File
+--------------------
+
+This plugin provides a clean minimal set of command line options that are added to nose2.  For
+further control of coverage use a coverage config file.
+
+For example if tests are contained within the directory tree being measured the tests may be
+excluded if desired by using a .coveragerc file with the omit option set::
+
+    nose2 --with-cov --cov-config .coveragerc testfoo
+
+Where the .coveragerc file contains file globs::
+
+    [run]
+    omit = tests/*
+
+For full details refer to the `coverage config file`_ documentation.
+
+.. _`coverage config file`: http://nedbatchelder.com/code/coverage/config.html
+
+Note that this plugin controls some options and setting the option in the config file will have no
+effect.  These include specifying source to be measured (source option) and all data file handling
+(data_file and parallel options).
+
+
 Limitations
 -----------
 
