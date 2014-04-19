@@ -41,7 +41,7 @@ class CovPlugin(nose2.events.Plugin):
         self.covController = cov_core.Central(self.covSource, self.covReport, self.covConfig)
         self.covController.start()
 
-    def afterSummaryReport(self, event):
+    def beforeSummaryReport(self, event):
         """Only called if active so stop coverage and produce reports."""
 
         self.covController.finish()
