@@ -1,5 +1,6 @@
 """Coverage plugin for nose2."""
 
+import os
 import nose2
 
 
@@ -40,9 +41,17 @@ class CovPlugin(nose2.events.Plugin):
         import cov_core
         self.covController = cov_core.Central(self.covSource, self.covReport, self.covConfig)
         self.covController.start()
+        # save coverage related environ variables in case one of the tests overwrites them
+        self.covEnv = {k: v for k, v in os.environ.iteritems() if k.startswith('COV_')}
+
+    def testOutcome(self, event):
+       """Restore coverage related environ variables in case the testcase overwrote it"""
+
+       os.environ.update(self.covEnv)
 
     def afterSummaryReport(self, event):
         """Only called if active so stop coverage and produce reports."""
 
         self.covController.finish()
         self.covController.summary(event.stream)
+
