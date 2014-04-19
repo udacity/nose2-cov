@@ -34,7 +34,7 @@ class CovPlugin(nose2.events.Plugin):
         self.covReport = event.args.cov_report or self.conReport or ['term']
         self.covConfig = event.args.cov_config or self.conConfig or '.coveragerc'
 
-    def startTestRun(self, event):
+    def createTests(self, event):
         """Only called if active so start coverage."""
 
         import cov_core
